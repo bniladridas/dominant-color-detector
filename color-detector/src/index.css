@@ -21,7 +21,7 @@ code {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4vw; /* Responsive font size */
     text-align: center;
     color: #d4af37; /* Ancient gold */
     text-transform: uppercase;
@@ -44,7 +44,7 @@ h1:hover {
 }
 
 p {
-    font-size: 1.5rem;
+    font-size: 2vw; /* Responsive font size */
     line-height: 1.6;
     color: #b8860b; /* Dark goldenrod */
     text-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
@@ -134,4 +134,29 @@ body::before {
     background-size: 50px 50px;
     opacity: 0.3;
     z-index: -1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6vw; /* Adjusted for smaller screens */
+    }
+    p {
+        font-size: 4vw; /* Adjusted for smaller screens */
+    }
+    button {
+        padding: 10px 20px; /* Adjusted padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 8vw; /* Further adjusted for very small screens */
+    }
+    p {
+        font-size: 5vw; /* Further adjusted for very small screens */
+    }
+    button {
+        padding: 8px 16px; /* Further adjusted padding for very small screens */
+    }
 }

@@ -55,44 +55,92 @@ function App() {
     }
   };
 
+  // Define styles for responsiveness
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      padding: "0 20px", // Add padding for smaller devices
+    },
+    logo: {
+      width: "100px",
+      marginBottom: "20px",
+      animation: "glow 1.5s infinite alternate",
+    },
+    link: {
+      textAlign: "center",
+      marginBottom: "20px",
+    },
+    qrCode: {
+      width: "100px",
+      marginBottom: "20px",
+    },
+    content: {
+      textAlign: "center",
+      margin: "50px",
+    },
+    fileInput: {
+      margin: "10px 0",
+    },
+    uploadButton: {
+      marginLeft: "10px",
+    },
+    error: {
+      color: "red",
+    },
+    colorInfo: {
+      marginTop: "20px",
+    },
+    colorBox: {
+      width: "100px",
+      height: "100px",
+      margin: "20px auto",
+      border: "1px solid #000",
+    },
+    colorList: {
+      listStyleType: "none",
+      padding: 0,
+    },
+    footer: {
+      marginTop: "50px",
+    },
+  };
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <img src="/drago.png" alt="Drago" style={{ width: "100px", marginBottom: "20px", animation: "glow 1.5s infinite alternate" }} />
-      <p>Try our <a href="https://dragon-ai-assistant.vercel.app" target="_blank" rel="noopener noreferrer">AI Assistant</a></p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://dragon-ai-assistant.vercel.app" alt="QR Code" style={{ width: "100px", marginBottom: "20px" }} />
-      <div style={{ textAlign: "center", margin: "50px" }}>
+    <div style={styles.container}>
+      <img src="/drago.png" alt="Drago" style={styles.logo} />
+      <p style={styles.link}>
+        Try our <a href="https://dragon-ai-assistant.vercel.app" target="_blank" rel="noopener noreferrer">AI Assistant</a>
+      </p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://dragon-ai-assistant.vercel.app" alt="QR Code" style={styles.qrCode} />
+      <div style={styles.content}>
         <h1>Dominant Color Detector</h1>
-        <input type="file" onChange={handleImageChange} />
+        <input type="file" onChange={handleImageChange} style={styles.fileInput} />
         <button
           type="button"
           onClick={handleUpload}
-          style={{ marginLeft: "10px" }}
+          style={styles.uploadButton}
           disabled={loading}
         >
           {loading ? "Uploading..." : "Upload"}
         </button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={styles.error}>{error}</p>}
         {color && (
-          <div>
+          <div style={styles.colorInfo}>
             <p>Dominant Color: {color}</p>
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                backgroundColor: color,
-                margin: "20px auto",
-                border: "1px solid #000",
-              }}
-            />
+            <div style={{ ...styles.colorBox, backgroundColor: color }} />
             <p>Color Information:</p>
-            <ul style={{ listStyleType: "none", padding: 0 }}>
+            <ul style={styles.colorList}>
               <li>Hex: {color}</li>
               <li>RGB: {hexToRgb(color)}</li>
               <li>HSL: {hexToHsl(color)}</li>
             </ul>
           </div>
         )}
-        <footer style={{ marginTop: "50px" }}>
+        <footer style={styles.footer}>
           <p>Helping designers, artists, and developers to identify and use colors effectively.</p>
         </footer>
       </div>
