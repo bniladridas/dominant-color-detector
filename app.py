@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image
 import logging
+import io
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -17,7 +18,7 @@ def upload_image():
     
     image = request.files["image"]
     try:
-        img = Image.open(image)
+        img = Image.open(io.BytesIO(image.read()))
         small_img = img.resize((1, 1))
         dominant_color = small_img.getpixel((0, 0))
         hex_color = "#{:02x}{:02x}{:02x}".format(*dominant_color)
