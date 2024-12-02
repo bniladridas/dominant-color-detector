@@ -42,7 +42,7 @@ function App() {
       console.error("Error uploading image:", err);
       if (err.response) {
         console.error("Server responded with:", err.response.data);
-        setError(`Failed to process the image: ${err.response.data.message || err.response.data}`);
+        setError(`Failed to process the image: ${err.response.data.error || err.response.data}`);
       } else if (err.request) {
         console.error("No response received:", err.request);
         setError("Failed to process the image. No response from the server.");
