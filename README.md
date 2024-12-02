@@ -8,7 +8,7 @@
 ![React](https://img.shields.io/badge/react-17.0.2-blue)
 [![npm version](https://badge.fury.io/js/melodify.svg)](https://badge.fury.io/js/color-detector)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bniladridas/color-detector/graphs/commit-activity)
-[![Play](https://img.shields.io/badge/Play-Visit%20Project-blue.svg)](#)
+[![Play](https://img.shields.io/badge/Play-Visit%20Project-blue.svg)](https://dominant-color-detector.vercel.app/)
 
 ## Project Overview
 
